@@ -1,16 +1,16 @@
 Start service:
 
 ```sh
-/ docker build -t bionf02:latest .
-/ docker run -it --rm -v /Users/letsmelon/Desktop/BIOINF/BIONF02/:/host bionf02:latest
+docker build -t bionf:latest .
+docker run -it --rm -v $(pwd)/src:/host bionf:latest
 ```
 
 Docker:
 
 ```sh
-/       cd host
-/host   cargo build --release
-/host   cp ./target/release/libbioinf02lib.so ./python/myrustlib.so
-/host   cd python
-/python python3 app.py # or pytest app.py
+cd host/rust
+cargo build --release
+cp ./target/release/libbioinf02lib.so ../python/myrustlib.so
+cd ../python
+python3 app.py # or pytest app.py
 ```
